@@ -15,7 +15,7 @@ function judgeFomula(fomula){
             if (nums_of_nums > nums_of_operater == false) {
                 return [];
             }
-            ////under code was comparing nums_of_nums and nums_of operater. It cause error
+            ////under code was comparing nums_of_nums and nums_of operater before nums_of_operater is plused. It cause error
             // if (nums_of_nums > nums_of_operater != true) {
             //     // return [(nums_of_nums > nums_of_operater == false)];
             //     return [];
