@@ -11,12 +11,17 @@ function judgeFomula(fomula){
         if (fomula_items[i].match(/[0-9]/) ){
             nums_of_nums = nums_of_nums + 1;
         }else if (fomula_items[i].match(/[\+\-\*\/]/)) {
+            nums_of_operater = nums_of_operater + 1;
             if (nums_of_nums > nums_of_operater == false) {
-                // return [(nums_of_nums > nums_of_operater == false)];
                 return [];
-            }else{
-                nums_of_operater = nums_of_operater + 1;
             }
+            ////under code was comparing nums_of_nums and nums_of operater. It cause error
+            // if (nums_of_nums > nums_of_operater != true) {
+            //     // return [(nums_of_nums > nums_of_operater == false)];
+            //     return [];
+            // }else{
+            //     nums_of_operater = nums_of_operater + 1;
+            // }
         }else{
             return [];
         }
@@ -32,7 +37,7 @@ function judgeFomula(fomula){
 function calcRevPol(fomula){
     // Judging fomula
     let fomula_items = judgeFomula(fomula);
-    if (fomula_items[0] == true) ;
+    if (fomula_items[0]) ;
     else return false;
 
     let stack = [];
@@ -72,10 +77,11 @@ var answer = [3,false,false,false,false,-51,16,12,1,31,-11.5,-10.5,75,2691,731];
 //console.log(calcRevPol(fomulaes[0]))
 for (let i=0; i < fomulaes.length; i++){
     console.log(fomulaes[i]);
-    if (calcRevPol(fomulaes[i]) != false){
+    if (calcRevPol(fomulaes[i])){
         console.log('='+calcRevPol(fomulaes[i]));
         console.log(calcRevPol(fomulaes[i])==answer[i]);
     }else{
+        console.log(calcRevPol(fomulaes[i]))
         console.log('Unexpected Fomula')
     }
 }
